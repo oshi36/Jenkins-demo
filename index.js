@@ -15,7 +15,7 @@ res.json({message:'Root page'})
 
 app.get("/get-data", (req, res) => {
 
-res.json({message:'Get JSON Example'})
+res.json({message:'Get JSON Example in demo'})
 
 })
 
