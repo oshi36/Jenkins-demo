@@ -1,17 +1,24 @@
 pipeline{
 
-	agent any
+	agent {label 'linux'}
 
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
 	}
 
 	stages {
+	    
+	    stage('gitclone') {
+
+			steps {
+				git 'https://github.com/oshi36/Jenkins-demo.git'
+			}
+		}
 
 		stage('Build') {
 
 			steps {
-				sh 'docker build -t oshi36/nodeapp:latest .'
+				sh 'docker build -t oshi36/nodeapp_test:latest .'
 			}
 		}
 
@@ -25,7 +32,7 @@ pipeline{
 		stage('Push') {
 
 			steps {
-				sh 'docker push oshi36/nodeapp:latest'
+				sh 'docker push oshi36/nodeapp_test:latest'
 			}
 		}
 	}
