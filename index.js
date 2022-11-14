@@ -21,5 +21,5 @@ res.json({message:'Get JSON Example'})
 
 //run the application
 app.listen(port, () => {
-  console.log(`running at port ${port}`);
+  console.log(`running at a port ${port}`);
 });
